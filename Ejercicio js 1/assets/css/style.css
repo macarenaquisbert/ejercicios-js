@@ -1,0 +1,110 @@
+ * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        background-color: #fafafa;
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        background-size: 40px 40px;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+        display: flex;
+        flex-direction: column;   /* importante */
+        align-items: center;
+        padding-top: 40px;        /* espacio arriba */
+      }
+
+      .gallery {
+        display: flex;
+        gap: 20px;
+        padding: 40px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+      }
+
+      h2 {
+        font-weight: 400;
+        margin-bottom: 40px;
+        color: #555;
+      }
+
+      .image-container {
+        position: relative;
+        /*tamaño de cuadrado*/
+        width: 320px;
+        height: 500px;
+      
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        flex-shrink: 0;
+      }
+
+      .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* When gallery is hovered, blur all images */
+      .gallery:hover .image-container {
+        filter: blur(4px);
+        transform: scale(0.95);
+        opacity: 0.6;
+      }
+
+      /* Except the one being hovered */
+      .gallery:hover .image-container:hover {
+        filter: blur(0);
+        transform: scale(1.05);
+        opacity: 1;
+        box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.2);
+        z-index: 10;
+      }
+
+      .image-container:hover img {
+        transform: scale(1.1);
+      }
+
+      /* Label overlay */
+      .label {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 16px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+        color: white;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.4s ease;
+      }
+
+      .image-container:hover .label {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .label h3 {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 2px;
+      }
+
+      .label p {
+        font-size: 12px;
+        opacity: 0.8;
+      }

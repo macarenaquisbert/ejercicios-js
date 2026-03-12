@@ -1,0 +1,128 @@
+    /* ============================= */
+    /* RESET GENERAL */
+    /* ============================= */
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+ 
+    body {
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: black;
+    }
+
+
+    /* ============================= */
+    /* 🎬 ESCENARIO (FONDO) */
+    /* ============================= */
+    .stage {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at center, #222 0%, #000 70%);
+    z-index: 1;
+    }
+
+    /* Piso del escenario */
+    .stage::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, #111, transparent);
+    }
+
+
+    /* ============================= */
+    /* 💡 LUCES */
+    /* ============================= */
+    .lights {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    }
+
+    .lights::before,
+    .lights::after {
+    content: "";
+    position: absolute;
+    top: -20%;
+    width: 40%;
+    height: 100%;
+    background: radial-gradient(
+        ellipse at top,
+        rgba(255,255,200,0.6),
+        transparent 70%
+    );
+    }
+
+    .lights::before {
+    left: 10%;
+    transform: rotate(15deg);
+    }
+
+    .lights::after {
+    right: 10%;
+    transform: rotate(-15deg);
+    }
+
+    /* Luces se encienden cuando se abre */
+    .open .lights {
+    opacity: 1;
+    }
+
+
+    /* ============================= */
+    /* 🎭 CORTINAS (ARRIBA DE TODO) */
+    /* ============================= */
+    .curtain {
+    position: fixed;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 100;   
+    transition: transform 2s ease-in-out;
+
+    background: repeating-linear-gradient(
+        90deg,
+        #7a0000,
+        #7a0000 15px,
+        #a00000 15px,
+        #a00000 30px
+    );
+    }
+
+    .curtain.left {
+    left: 0;
+    }
+
+    .curtain.right {
+    right: 0;
+    }
+
+    /* Animación apertura */
+    .open .curtain.left {
+    transform: translateX(-100%);
+    }
+
+    .open .curtain.right {
+    transform: translateX(100%);
+    }
+
+
+    /* ============================= */
+    /* 🎤 CONTENIDO (DEBAJO CORTINAS) */
+    /* ============================= */
+    .content {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    margin-top: 80px;
+    color: white;
+    }
