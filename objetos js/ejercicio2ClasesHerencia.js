@@ -18,4 +18,4 @@ let ciudadano5 = new AltaBajaCiudadano("Laura", "Martinez", "99887766", "NO");
 
 // 4️ Mostrar estado en consola
 console.log(ciudadano4.mostrarEstado());
-console.log(ciudadano5.mostrarEstado());
+console.log(ciudadano5.mostrarEstado()); 
