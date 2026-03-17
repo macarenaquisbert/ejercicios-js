@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios JavaScript</title>
+</head>
+
+<body>
+
+<h2>Resultados</h2>
+
+<p id="res1"></p>
+<p id="res2"></p>
+<p id="res3"></p>
+<p id="res4"></p>
+
+<!-- Archivos JS -->
+<script src="ensaladaFrutas.js"></script>
+<script src="calculaElMayor.js"></script>
+<script src="amigos.js"></script>
+<script src="misAmigos.js"></script>
+<script src="promedioEdad.js"></script>
+<script src="supermercado.js"></script>
+<script src="tiradaDados.js"></script>
+
+<script>
+
+document.getElementById("res1").innerHTML =
+"<b>Saludo:</b> " + saludo();
+
+document.getElementById("res2").innerHTML =
+"<b>Cálculo Mayor:</b> " + calculoMayor(10, 5);
+
+document.getElementById("res3").innerHTML =
+"<b>Filtrar Amigos:</b> " + filtrarAmigos(["Ryan","Mark","Miguel"], 4);
+
+document.getElementById("res4").innerHTML =
+"<b>Tirar Dado:</b> " + tirarDado();
+
+</script>
+
+</body>
+</html>
